@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      echo: "Scanning latest code commits"
+      run: echo "Scanning latest code commits"
   build:
     runs-on: ubuntu-latest
     steps:
