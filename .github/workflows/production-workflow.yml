@@ -11,6 +11,11 @@ env:
   #REGISTRY: "your-digitalocean-registry-container-url"
   IMAGE_NAME: "demo-alpine"
 jobs:
+  code_scanning:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      echo: "Scanning latest code commits"
   build:
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +35,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+
         # optimizing 
         #cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache
         #cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
