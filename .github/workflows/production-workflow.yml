@@ -16,7 +16,7 @@ jobs:
     steps:
     - name: Checkout
       run: echo "Scanning latest code commits"
-  build:
+  building_application:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 
@@ -41,3 +41,8 @@ jobs:
         #cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:buildcache,mode=max
     #- name: Build the Docker image
     #  run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Unit Tests
+      run: echo "Unit tests in progress..."
